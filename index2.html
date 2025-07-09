@@ -16,15 +16,19 @@
     header {
       background-color: #72431a;
       color: #fff;
-      padding: 10px 0;
+      padding: 20px 0;
     }
 
     .header-content {
       display: flex;
+      flex-direction: row;
       align-items: center;
-      justify-content: flex-start;
+      justify-content: center;
       flex-wrap: wrap;
-      padding: 10px 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 20px;
+      text-align: center;
     }
 
     .logo {
@@ -34,7 +38,6 @@
 
     .header-text {
       flex: 1;
-      text-align: left;
     }
 
     nav {
@@ -111,8 +114,12 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       overflow: hidden;
       margin-bottom: 20px;
-      padding-top: 56.25%; /* 16:9 Aspect Ratio */
+      padding-top: 56.25%; /* Default 16:9 aspect ratio */
       display: none;
+    }
+
+    .graph {
+      display: block;
     }
 
     .iframe-container.active {
@@ -129,7 +136,7 @@
       border: none;
     }
 
-    /* Mobile Responsive Tweaks */
+    /* Responsive tweaks */
     @media (max-width: 768px) {
       .header-content {
         flex-direction: column;
@@ -141,13 +148,9 @@
         margin: 0 0 10px 0;
       }
 
-      .header-text {
-        text-align: center;
-      }
-
       .graph,
       .iframe-container {
-        padding-top: 100%; /* Taller on mobile */
+        padding-top: 150%; /* Taller for mobile */
       }
 
       .tabs {
@@ -245,10 +248,9 @@
         tabs.forEach((tab, i) => {
           tab.classList.toggle('active', i === index);
           containers[i].classList.toggle('active', i === index);
-
           if (i === index) {
             const src = iframes[i].getAttribute('src');
-            iframes[i].setAttribute('src', src); // reload
+            iframes[i].setAttribute('src', src);
           }
         });
       }
@@ -258,7 +260,6 @@
   <section id="conclusions">
     <h2>Conclusions</h2>
     <p>
-      The Melete Energy Project is progressing steadily toward helping make heritage buildings more energy efficient. Next steps involve live system integration and expanding data visualizations to support decision-making.
     </p>
   </section>
 
