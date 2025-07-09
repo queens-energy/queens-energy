@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Melete Energy Project</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ensures mobile scaling -->
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      line-height: 1.6;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    header {
+      background-color: #72431a;
+      color: #fff;
+      padding: 10px 15px;
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap; /* Allow wrapping */
+      text-align: center;
+    }
+
+    .logo {
+      height: 60px;
+      margin-bottom: 10px;
+    }
+
+    .header-text {
+      flex: 1 1 100%;
+    }
+
+    nav {
+      background: #e0e0e0;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #72431a;
+      font-weight: bold;
+      display: inline-block;
+      margin-bottom: 5px;
+    }
+
+    section {
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+      background-color: #fff;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #72431a;
+    }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap; /* Allow tabs to wrap on smaller screens */
+      border-bottom: 2px solid #ccc;
+      margin-bottom: 1px;
+      gap: 5px;
+    }
+
+    .tab {
+      background: #fff;
+      color: #333;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 8px 8px 0 0;
+      cursor: pointer;
+      font-size: 14px;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      flex: 1 1 auto;
+      text-align: center;
+    }
+
+    .tab:hover {
+      background-color: #f0f0f0;
+    }
+
+    .tab.active {
+      background-color: #72431a;
+      color: #fff;
+      font-weight: bold;
+      box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.15) inset;
+    }
+
+    .iframe-container {
+      display: none;
+      width: 100%;
+      height: 0;
+      padding-top: 56.25%; /* 16:9 Aspect Ratio */
+      position: relative;
+      border: 1px solid #ddd;
+      border-radius: 0 0 8px 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .iframe-container.active {
+      display: block;
+    }
+
+    .iframe-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .graph {
+      border: 1px solid #ddd;
+      border-radius: 0 0 8px 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      position: relative;
+      padding-top: 56.25%; /* Responsive 16:9 ratio */
+      margin-bottom: 20px;
+    }
+
+    .graph iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #72431a;
+      color: white;
+    }
+
+    /* Mobile-specific styles */
+    @media (max-width: 600px) {
+      .tab {
+        flex: 1 1 100%;
+        font-size: 14px;
+      }
+
+      .logo {
+        height: 50px;
+        position: static;
+        margin-bottom: 10px;
+      }
+
+      .header-content {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      nav a {
+        display: block;
+        margin: 8px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-content">
+      <img src="melete-logo.png" alt="Melete Energy Logo" class="logo">
+      <div class="header-text">
+        <h1>Melete Energy Project</h1>
+        <p>Making heritage buildings more carbon efficient, cost effective, and comfortable.</p>
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <a href="#intro">Introduction</a>
+    <a href="#data">Data Sources</a>
+    <a href="#progress">Progress</a>
+    <a href="#graphs">Graphs</a>
+    <a href="#conclusions">Conclusions</a>
+  </nav>
+
+  <section id="intro">
+    <h2>Introduction</h2>
+    <p>
+      This project investigates energy usage at Queens' College to try to uncover patterns in heating, cooling, and temperature behavior across the buildings. Our goals are to cut energy costs, reduce our carbon footprint, and increase comfort of heating for residents.
+    </p>
+  </section>
+
+  <section id="data">
+    <h2>Data Sources</h2>
+    <ul>
+      <li>Belimo sensor data</li>
+      <li>Building management system data from PRIVA</li>
+      <li>Fuel usage data</li>
+    </ul>
+  </section>
+
+  <section id="progress">
+    <h2>Progress</h2>
+    <p>
+      We have collected and cleaned data from the Belimo sensors, which give information about heating power, temperatures, and volume flow. Some of the data from these sensors is shown in the graphs below.
+    </p>
+    <p>
+      We have also built a working template for a user interface, which will eventually show live information about the heating system and daily energy usage, alongside alerts about potential maintenance issues.
+    </p>
+  </section>
+
+  <section id="graphs">
+    <h2>Graphs and Visualizations</h2>
+    <p>
+      Below are visual representations of our data, including outside temperature trends, heating and cooling power usage.
+    </p>
+
+    <div class='graph'>
+      <iframe src="tempvsheating.html"></iframe>
+    </div>
+
+    <div class="tabs">
+      <button class="tab active" onclick="showTab(0)">FISHER</button>
+      <button class="tab" onclick="showTab(1)">CRIPPS VT</button>
+      <button class="tab" onclick="showTab(2)">CRIPPS NEW CT</button>
+      <button class="tab" onclick="showTab(3)">CRIPPS OLD CT</button>
+      <button class="tab" onclick="showTab(4)">MCC1</button>
+    </div>
+
+    <div class="iframe-container active">
+      <iframe src="BCH 1_1.html"></iframe>
+    </div>
+    <div class="iframe-container">
+      <iframe src="BCH 1_2.html"></iframe>
+    </div>
+    <div class="iframe-container">
+      <iframe src="BCH 1_3.html"></iframe>
+    </div>
+    <div class="iframe-container">
+      <iframe src="BCH 1_4.html"></iframe>
+    </div>
+    <div class="iframe-container">
+      <iframe src="BCH 1_5.html"></iframe>
+    </div>
+
+    <script>
+      function showTab(index) {
+        const tabs = document.querySelectorAll('.tab');
+        const containers = document.querySelectorAll('.iframe-container');
+        const iframes = document.querySelectorAll('.iframe-container iframe');
+
+        tabs.forEach((tab, i) => {
+          tab.classList.toggle('active', i === index);
+          containers[i].classList.toggle('active', i === index);
+          if (i === index) {
+            const src = iframes[i].getAttribute('src');
+            iframes[i].setAttribute('src', src);
+          }
+        });
+      }
+    </script>
+
+  </section>
+
+  <section id="conclusions">
+    <h2>Conclusions</h2>
+    <p>
+      <!-- Add any summary or results here -->
+    </p>
+  </section>
+
+  <footer>
+    &copy; Melete Energy Project
+  </footer>
+
+</body>
+</html>
