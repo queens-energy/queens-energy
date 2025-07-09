@@ -3,12 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Melete Energy Project</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ensures mobile scaling -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -20,24 +16,25 @@
     header {
       background-color: #72431a;
       color: #fff;
-      padding: 10px 15px;
+      padding: 10px 0;
     }
 
     .header-content {
       display: flex;
       align-items: center;
-      justify-content: center;
-      flex-wrap: wrap; /* Allow wrapping */
-      text-align: center;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      padding: 10px 20px;
     }
 
     .logo {
-      height: 60px;
-      margin-bottom: 10px;
+      height: 80px;
+      margin-right: 20px;
     }
 
     .header-text {
-      flex: 1 1 100%;
+      flex: 1;
+      text-align: left;
     }
 
     nav {
@@ -47,12 +44,10 @@
     }
 
     nav a {
-      margin: 0 10px;
+      margin: 0 15px;
       text-decoration: none;
       color: #72431a;
       font-weight: bold;
-      display: inline-block;
-      margin-bottom: 5px;
     }
 
     section {
@@ -69,26 +64,31 @@
       color: #72431a;
     }
 
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #72431a;
+      color: white;
+    }
+
     .tabs {
       display: flex;
-      flex-wrap: wrap; /* Allow tabs to wrap on smaller screens */
+      flex-wrap: wrap;
       border-bottom: 2px solid #ccc;
       margin-bottom: 1px;
-      gap: 5px;
     }
 
     .tab {
       background: #fff;
       color: #333;
-      padding: 10px 16px;
+      padding: 12px 24px;
       border: none;
       border-radius: 8px 8px 0 0;
+      margin-right: 5px;
       cursor: pointer;
-      font-size: 14px;
-      transition: all 0.2s ease;
+      font-size: 16px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      flex: 1 1 auto;
-      text-align: center;
+      transition: all 0.2s ease;
     }
 
     .tab:hover {
@@ -102,22 +102,24 @@
       box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.15) inset;
     }
 
+    .graph,
     .iframe-container {
-      display: none;
-      width: 100%;
-      height: 0;
-      padding-top: 56.25%; /* 16:9 Aspect Ratio */
       position: relative;
+      width: 100%;
       border: 1px solid #ddd;
       border-radius: 0 0 8px 8px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       overflow: hidden;
+      margin-bottom: 20px;
+      padding-top: 56.25%; /* 16:9 Aspect Ratio */
+      display: none;
     }
 
     .iframe-container.active {
       display: block;
     }
 
+    .graph iframe,
     .iframe-container iframe {
       position: absolute;
       top: 0;
@@ -127,53 +129,29 @@
       border: none;
     }
 
-    .graph {
-      border: 1px solid #ddd;
-      border-radius: 0 0 8px 8px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      overflow: hidden;
-      position: relative;
-      padding-top: 56.25%; /* Responsive 16:9 ratio */
-      margin-bottom: 20px;
-    }
-
-    .graph iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #72431a;
-      color: white;
-    }
-
-    /* Mobile-specific styles */
-    @media (max-width: 600px) {
-      .tab {
-        flex: 1 1 100%;
-        font-size: 14px;
-      }
-
-      .logo {
-        height: 50px;
-        position: static;
-        margin-bottom: 10px;
-      }
-
+    /* Mobile Responsive Tweaks */
+    @media (max-width: 768px) {
       .header-content {
         flex-direction: column;
         align-items: center;
+        text-align: center;
       }
 
-      nav a {
-        display: block;
-        margin: 8px 0;
+      .logo {
+        margin: 0 0 10px 0;
+      }
+
+      .header-text {
+        text-align: center;
+      }
+
+      .graph,
+      .iframe-container {
+        padding-top: 100%; /* Taller on mobile */
+      }
+
+      .tabs {
+        justify-content: center;
       }
     }
   </style>
@@ -230,7 +208,7 @@
       Below are visual representations of our data, including outside temperature trends, heating and cooling power usage.
     </p>
 
-    <div class='graph'>
+    <div class="graph">
       <iframe src="tempvsheating.html"></iframe>
     </div>
 
@@ -267,20 +245,20 @@
         tabs.forEach((tab, i) => {
           tab.classList.toggle('active', i === index);
           containers[i].classList.toggle('active', i === index);
+
           if (i === index) {
             const src = iframes[i].getAttribute('src');
-            iframes[i].setAttribute('src', src);
+            iframes[i].setAttribute('src', src); // reload
           }
         });
       }
     </script>
-
   </section>
 
   <section id="conclusions">
     <h2>Conclusions</h2>
     <p>
-      <!-- Add any summary or results here -->
+      The Melete Energy Project is progressing steadily toward helping make heritage buildings more energy efficient. Next steps involve live system integration and expanding data visualizations to support decision-making.
     </p>
   </section>
 
