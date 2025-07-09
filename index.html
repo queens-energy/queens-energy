@@ -56,6 +56,24 @@
       overflow: hidden;
     }
 
+    .header-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.logo {
+  height: 60px;
+  position: absolute;
+  left: 20px;
+}
+
+.header-text {
+  text-align: center;
+  flex: 1;
+}
+
     iframe {
       width: 100%;
       height: 100%;
@@ -115,9 +133,13 @@
 <body>
 
   <header>
-  <img src="melete-logo.png" alt="Melete Energy Logo" style="height:60px; vertical-align: middle; margin-right: 15px;">
-  <h1 style="display: inline-block; vertical-align: middle; margin: 0;">Melete Energy Project</h1>
-  <p>Making heritage buildings more carbon efficient, cost effective, and comfortable.</p>
+  <div class="header-content">
+    <img src="logo.png" alt="Melete Energy Logo" class="logo">
+    <div class="header-text">
+      <h1>Melete Energy Project</h1>
+      <p>Making Queens' College more carbon efficient, cost effective, and comfortable.</p>
+    </div>
+  </div>
 </header>
 
   <nav>
