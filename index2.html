@@ -132,6 +132,8 @@
       border-radius: 0 0 8px 8px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       overflow: hidden;
+      margin-bottom: 20px;
+
     }
 
     .iframe-container.active {
@@ -176,7 +178,6 @@
     <a href="#data">Data Sources</a>
     <a href="#progress">Progress</a>
     <a href="#graphs">Graphs</a>
-    <a href="#conclusions">Conclusions</a>
   </nav>
 
   <section id="intro">
@@ -190,25 +191,31 @@
     <h2>Data Sources</h2>
     <ul>
       <li>Belimo sensor data</li>
-      <li>Building management system data from PRIVA</li>
-      <li>Fuel usage data</li>
+      <li>Building management system (BMS) data from Priva</li>
+      <li>Fuel usage data from SystemLink</li>
     </ul>
   </section>
 
   <section id="progress">
     <h2>Progress</h2>
     <p>
-      We have collected and cleaned data from the Belimo sensors, which give information about heating power, temperatures, and volume flow. Some of the data from these sensors is shown in the graphs below.
+      We have collected and cleaned data from the Belimo sensors installed in Fisher and Cripps. These gave information about heating power, temperatures, and volume flow. Some of the data from these sensors is shown in the graphs below.
     </p>
     <p>
-      We have also built a working template for a user interface, which will eventually show live information about the heating system and daily energy usage, alongside alerts about potential maintenance issues.
+      We are also in the process of building user interfaces, which will display key information about live energy usage and heating information at Queens'.
+    </p>
+    <p>
+      In order to analyse and store BMS data from the Priva system, we developed a Python module to interact with the Priva API. We are in the process of setting up long term storage for this data so that future projects will have access to much more data, which will aid analysis.
+    </p>
+    <p>
+      Currently, we are looking at important places to add more sensors in the heating systems around Queens'. This will again facilitate more comprehensive future analysis.
     </p>
   </section>
 
   <section id="graphs">
     <h2>Graphs and Visualizations</h2>
     <p>
-      Below are visual representations of our data, including outside temperature trends, heating and cooling power usage.
+      Below are visual representations of the Belimo data for Fisher and Cripps, which include outside temperature trends, heating power usage, and flow rates.
     </p>
 
     <div class="graph">
@@ -255,12 +262,19 @@
         });
       }
     </script>
-  </section>
-
-  <section id="conclusions">
-    <h2>Conclusions</h2>
     <p>
-    </p>
+    Plots showing the loads of the risers in Erasmus against time and temperature are displayed below.
+      </p>
+    <div class="graph">
+      <iframe src="risersloadtime.html"></iframe>
+    </div>
+
+    <div class="graph">
+      <iframe src="risersloadtemp.html"></iframe>
+    </div>
+
+
+
   </section>
 
   <footer>
